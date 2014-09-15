@@ -181,7 +181,7 @@ SurfaceAndGroundControl: ICE,PACKED_ICE,-0.1
 # Example :
 #   ReplacedBlocks: (GRASS,DIRT,100,127),(GRAVEL,GLASS)
 # Replace grass block to dirt from 100 to 127 height and replace gravel to glass on all height 
-ReplacedBlocks: None
+ReplacedBlocks: (DIRT,PACKED_ICE,0,100)
 
 #################
 # Water and ice #
@@ -212,7 +212,7 @@ IceBlock: ICE
 # Biome temperature. Float value from 0.0 to 2.0.
 # When this value is around 0.2, snow will fall on mountain peaks above y=90.
 # When this value is around 0.1, the whole biome will be covered in snow and ice.
-BiomeTemperature: 0.0
+BiomeTemperature: 0.1
 
 # Biome wetness. Float value from 0.0 to 1.0.
 # When this is set to 0, no rain will fall.
