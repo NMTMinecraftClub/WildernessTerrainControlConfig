@@ -32,7 +32,7 @@ Tree: false
 
 # The frequency of the BO3 from 1 to 200. Tries this many times to spawn this BO3 when using the CustomObject(...) resource.
 # Ignored by Tree(..), Sapling(..) and CustomStructure(..)
-Frequency: 1
+Frequency: 20
 
 # The rarity of the BO3 from 0 to 100. Each spawn attempt has rarity% chance to succeed when using the CustomObject(...) resource.
 # Ignored by Tree(..), Sapling(..) and CustomStructure(..)
@@ -42,12 +42,12 @@ Rarity: 100.0
 RotateRandomly: false
 
 # The spawn height of the BO3 - randomY, highestBlock or highestSolidBlock.
-SpawnHeight: highestBlock
+SpawnHeight: randomY
 
 # The height limits for the BO3.
-MinHeight: 0
+MinHeight: 130
 
-MaxHeight: 256
+MaxHeight: 200
 
 # Objects can have other objects attacthed to it: branches. Branches can also
 # have branches attached to it, which can also have branches, etc. This is the
@@ -88,49 +88,14 @@ OutsideSourceBlock: placeAnyway
 # So RandomBlock(0,0,0,CHEST,chest.nbt,50,CHEST,anotherchest.nbt,100) will spawn a chest at
 # the BO3 origin, and give it a 50% chance to have the contents of chest.nbt, or, if that
 # fails, a 100% percent chance to have the contents of anotherchest.nbt.
-Block(-3,0,1,WOOL)
-Block(-3,0,2,WOOL)
-Block(-2,0,-1,WOOL)
-Block(-2,0,0,WOOL)
-Block(-2,0,1,WOOL)
-Block(-2,0,2,WOOL)
-Block(-2,0,3,WEB)
-Block(-1,0,-1,WOOL)
-RandomBlock(-1,0,0,REDSTONE_ORE,50,COAL_ORE,100)
-RandomBlock(-1,0,1,COAL_ORE,25,IRON_ORE,75,GOLD_ORE,100)
-Block(-1,0,2,WOOL)
-Block(-1,0,3,WOOL)
-Block(0,0,-2,WEB)
+Block(-1,0,0,WOOL)
 Block(0,0,-1,WOOL)
-RandomBlock(0,0,0,COAL_ORE,75,IRON_ORE,100)
-RandomBlock(0,0,1,REDSTONE_ORE,70,COAL_ORE,100)
-Block(0,0,2,WOOL)
-Block(0,0,3,WOOL)
-Block(0,0,4,WEB)
-Block(1,0,-3,WEB)
-Block(1,0,-2,WOOL)
+Block(0,0,0,WOOL)
+Block(0,0,1,WOOL)
 Block(1,0,-1,WOOL)
-RandomBlock(1,0,0,DIAMOND_ORE,80,DIAMOND_BLOCK,100)
-RandomBlock(1,0,1,REDSTONE_ORE,20,LAPIS_ORE,40,GOLD_ORE,100)
-Block(1,0,2,WOOL)
-Block(1,0,3,WOOL)
-Block(1,0,4,WEB)
-Block(2,0,-3,WEB)
-Block(2,0,-2,WOOL)
-RandomBlock(2,0,-1,COAL_ORE,80,IRON_ORE,20,GOLD_ORE,100)
-RandomBlock(2,0,0,COAL_ORE,80,IRON_ORE,20,GOLD_ORE,100)
-RandomBlock(2,0,1,COAL_ORE,80,IRON_ORE,20,GOLD_ORE,100)
-Block(2,0,2,WOOL)
-Block(2,0,3,WEB)
-Block(3,0,-2,WOOL)
-Block(3,0,-1,WOOL)
-Block(3,0,0,WOOL)
-Block(3,0,1,WOOL)
-Block(3,0,2,WOOL)
-Block(4,0,-2,WEB)
-Block(4,0,0,WOOL)
-Block(4,0,1,WOOL)
-Block(4,0,2,WOOL)
+Block(1,0,0,WOOL)
+Block(1,0,1,WOOL)
+Block(2,0,0,WOOL)
 
 #######################################################################
 # +-----------------------------------------------------------------+ #
@@ -172,4 +137,3 @@ Block(4,0,2,WOOL)
 # Weighted Branches spawn branches with a dependent chance of spawning.
 # WeightedBranch(x,y,z,branchName,rotation,chance[,anotherBranchName,rotation,chance[,...]][MaxChanceOutOf])
 # MaxChanceOutOf - The chance all branches have to spawn out of, assumed to be 100 when left blank
-WeightedBranch(0,1,0,we-cloud_l1_1,EAST,20,we-cloud_l1_2,WEST,20,we-cloud_l1_3,NORTH,20,we-cloud_l1_4,EAST,20,we-cloud_l1_5,EAST,20,we-cloud_l3_1,SOUTH,10,we-cloud_l3_2,SOUTH,10,we-cloud_l3_3,SOUTH,10)

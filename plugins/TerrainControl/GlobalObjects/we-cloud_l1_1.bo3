@@ -32,22 +32,22 @@ Tree: false
 
 # The frequency of the BO3 from 1 to 200. Tries this many times to spawn this BO3 when using the CustomObject(...) resource.
 # Ignored by Tree(..), Sapling(..) and CustomStructure(..)
-Frequency: 1
+Frequency: 20
 
 # The rarity of the BO3 from 0 to 100. Each spawn attempt has rarity% chance to succeed when using the CustomObject(...) resource.
 # Ignored by Tree(..), Sapling(..) and CustomStructure(..)
 Rarity: 100.0
 
 # If you set this to true, the BO3 will be placed with a random rotation.
-RotateRandomly: false
+RotateRandomly: true
 
 # The spawn height of the BO3 - randomY, highestBlock or highestSolidBlock.
-SpawnHeight: highestBlock
+SpawnHeight: randomY
 
 # The height limits for the BO3.
-MinHeight: 0
+MinHeight: 130
 
-MaxHeight: 256
+MaxHeight: 200
 
 # Objects can have other objects attacthed to it: branches. Branches can also
 # have branches attached to it, which can also have branches, etc. This is the
@@ -98,12 +98,12 @@ Block(-1,0,1,WOOL)
 Block(-1,0,2,WEB)
 Block(0,0,-2,WOOL)
 Block(0,0,-1,WOOL)
-Block(0,0,0,IRON_ORE)
+RandomBlock(0,0,0,IRON_ORE,50,DIAMOND_ORE,25,COAL_ORE,75,LAPIS_ORE,100)
 Block(0,0,1,WOOL)
 Block(0,0,2,WOOL)
 Block(1,0,-2,WOOL)
 Block(1,0,-1,WOOL)
-Block(1,0,0,GLOWING_REDSTONE_ORE)
+RandomBlock(1,0,0,REDSTONE_ORE,60,DIAMOND_ORE,100)
 Block(1,0,1,WOOL)
 Block(1,0,2,WOOL)
 Block(2,0,-2,WEB)
@@ -154,3 +154,4 @@ Block(3,0,0,WOOL)
 # Weighted Branches spawn branches with a dependent chance of spawning.
 # WeightedBranch(x,y,z,branchName,rotation,chance[,anotherBranchName,rotation,chance[,...]][MaxChanceOutOf])
 # MaxChanceOutOf - The chance all branches have to spawn out of, assumed to be 100 when left blank
+WeightedBranch(0,1,0,we-cloud_base_1,SOUTH,10,we-cloud_base_2,WEST,10,we-cloud_l2_1,SOUTH,15,we-cloud_l2_2,NORTH,15,we-cloud_l2_3,EAST,15,we-cloud_l2_4,NORTH,15,we-cloud_l2_5,SOUTH,15,we-cloud_l2_6,NORTH,15)

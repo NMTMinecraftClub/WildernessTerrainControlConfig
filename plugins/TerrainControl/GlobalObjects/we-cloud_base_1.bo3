@@ -45,9 +45,9 @@ RotateRandomly: true
 SpawnHeight: randomY
 
 # The height limits for the BO3.
-MinHeight: 200
+MinHeight: 130
 
-MaxHeight: 220
+MaxHeight: 200
 
 # Objects can have other objects attacthed to it: branches. Branches can also
 # have branches attached to it, which can also have branches, etc. This is the
@@ -138,4 +138,4 @@ Block(2,0,0,WOOL)
 # Weighted Branches spawn branches with a dependent chance of spawning.
 # WeightedBranch(x,y,z,branchName,rotation,chance[,anotherBranchName,rotation,chance[,...]][MaxChanceOutOf])
 # MaxChanceOutOf - The chance all branches have to spawn out of, assumed to be 100 when left blank
-Branch(0,1,0,we-cloud_l1_1,NORTH,15,we-cloud_l1_2,NORTH,15,we-cloud_l1_3,NORTH,15,we-cloud_l1_4,NORTH,15,we-cloud_l1_5,NORTH,15)
+WeightedBranch(0,1,0,we-cloud_l1_1,NORTH,15,we-cloud_l1_2,NORTH,15,we-cloud_l1_3,NORTH,15,we-cloud_l1_4,NORTH,15,we-cloud_l1_5,NORTH,15,we-cloud_top_1,NORTH,10,we-cloud_top_2,NORTH,10)

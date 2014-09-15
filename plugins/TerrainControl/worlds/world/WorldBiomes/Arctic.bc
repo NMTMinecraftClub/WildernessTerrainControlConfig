@@ -68,7 +68,7 @@ NotBorderNear:
 # BiomeHeight mean how much height will be added in terrain generation
 # It is double value from -10.0 to 10.0
 # Value 0.0 equivalent half of map height with all other default settings
-BiomeHeight: 0.0
+BiomeHeight: 2.0
 
 # Biome volatility.
 BiomeVolatility: 0.025
@@ -300,7 +300,7 @@ FoliageColorIsMultiplier: true
 # Vein resource: not in vanilla. Starts an area where ores will spawn. Can be slow, so use a low Rarity (smaller than 1).
 # CustomStructure resource: starts a BO3 structure in the chunk.
 
-SmallLake(LAVA,2,100.0,0,120)
+SmallLake(LAVA,20,100.0,0,120)
 Dungeon(8,100.0,0,128)
 Ore(DIRT,32,20,100.0,0,128,STONE)
 Ore(GRAVEL,32,10,100.0,0,128,STONE)
@@ -312,6 +312,7 @@ Ore(DIAMOND_ORE,7,1,100.0,0,16,STONE)
 Ore(LAPIS_ORE,7,1,100.0,0,16,STONE)
 CustomObject(UseWorld)
 Liquid(LAVA,10,100.0,8,128,STONE)
+CustomStructure(we-cloud_base_1,14.0,we-cloud_base_2,14.0)
 
 #######################################################################
 # +-----------------------------------------------------------------+ #
@@ -355,7 +356,7 @@ BiomeObjects:
 StrongholdsEnabled: false
 
 # Whether a Nether Fortress can start in this biome. Might extend to neighbor biomes.
-NetherFortressesEnabled: true
+NetherFortressesEnabled: false
 
 # The village type in this biome. Can be wood, sandstone or disabled.
 VillageType: wood

@@ -182,3 +182,4 @@ Block(4,0,3,WOOL)
 # Weighted Branches spawn branches with a dependent chance of spawning.
 # WeightedBranch(x,y,z,branchName,rotation,chance[,anotherBranchName,rotation,chance[,...]][MaxChanceOutOf])
 # MaxChanceOutOf - The chance all branches have to spawn out of, assumed to be 100 when left blank
+WeightedBranch(0,1,0,we-cloud_l1_1,EAST,20,we-cloud_l1_2,WEST,20,we-cloud_l1_3,NORTH,20,we-cloud_l1_4,EAST,20,we-cloud_l1_5,EAST,20,we-cloud_l3_1,SOUTH,10,we-cloud_l3_2,SOUTH,10,we-cloud_l3_3,SOUTH,10)
