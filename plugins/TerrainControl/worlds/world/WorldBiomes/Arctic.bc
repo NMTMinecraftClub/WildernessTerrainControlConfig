@@ -1,4 +1,4 @@
-# This is the biome config file of the Beach biome, which is one of the vanilla biomes.
+# This is the biome config file of the Arctic biome, which is a custom biome.
 
 #######################################################################
 # +-----------------------------------------------------------------+ #
@@ -36,21 +36,24 @@ BiomeRarity: 100
 # and used in the input of BiomeMode:FromImage.
 BiomeColor: 0xFADE55
 
-# (ReplaceToBiomeName is only available in custom biomes.)
+# Replace this biome to specified after the terrain is generated.
+# This will make the world files contain the id of the specified biome, instead of the id of this biome.
+# This will cause saplings, colors and mob spawning work as in specified biome.
+ReplaceToBiomeName: 
 
 ####################
 # Isle biomes only #
 ####################
 
 # Biome name list where this biome will be spawned as isle. Like Mushroom isle in Ocean.  This work only if this biome is in IsleBiomes in world config
-IsleInBiome:
+IsleInBiome: 
 
 ######################
 # Border biomes only #
 ######################
 
 # Biome name list where this biome will be border.Like Mushroom isle shore. Use is compared as IsleInBiome
-BiomeIsBorder:
+BiomeIsBorder: 
 
 # Biome name list near border is not applied. 
 NotBorderNear: 
@@ -172,7 +175,7 @@ GroundBlock: ICE
 
 # Alternatively, you can use Mesa, MesaForest or MesaBryce to get blocks
 # like the blocks found in the Mesa biomes.
-SurfaceAndGroundControl: 79,PACKED_ICE,-0.1
+SurfaceAndGroundControl: ICE,PACKED_ICE,-0.1
 
 # Replace Variable: (blockFrom,blockTo[:blockDataTo][,minHeight,maxHeight])
 # Example :
@@ -207,11 +210,12 @@ IceBlock: ICE
 
 # Most of the settings here only have an effect on players with the client version of Terrain Control installed.
 # Biome temperature. Float value from 0.0 to 2.0.
-# On default biomes, this won't do anything except changing the grass and leaves colors slightly.
+# When this value is around 0.2, snow will fall on mountain peaks above y=90.
+# When this value is around 0.1, the whole biome will be covered in snow and ice.
 BiomeTemperature: 0.0
 
 # Biome wetness. Float value from 0.0 to 1.0.
-# On default biomes, this won't do anything except changing the grass and leaves colors slightly.
+# When this is set to 0, no rain will fall.
 BiomeWetness: 0.4
 
 # Biome sky color.
@@ -354,10 +358,10 @@ StrongholdsEnabled: false
 NetherFortressesEnabled: true
 
 # The village type in this biome. Can be wood, sandstone or disabled.
-VillageType: disabled
+VillageType: wood
 
 # The mineshaft rarity from 0 to 100. 0 = no mineshafts, 1 = default rarity, 100 = a wooden chaos.
-MineshaftRarity: 1.0
+MineshaftRarity: 0.0
 
 # The type of the aboveground rare building in this biome. Can be desertPyramid, jungleTemple, swampHut or disabled.
 RareBuildingType: disabled
@@ -369,4 +373,62 @@ RareBuildingType: disabled
 # +-----------------------------------------------------------------+ #
 #######################################################################
 
-# Mob spawning control doesn't work in default biomes.
+# ========<TUTORIAL>========
+# This is where you configure mob spawning. Changing this section is optional.
+
+# #STEP1: Understanding what a mobgroup is.
+# A mobgroups is made of four parts. They are mob, weight, min and max.
+# The mob is one of the Minecraft internal mob names.
+# See http://www.minecraftwiki.net/wiki/Chunk_format#Mobs
+# The weight is used for a random selection. This is a positive integer.
+# The min is the minimum amount of mobs spawning as a group. This is a positive integer.
+# The max is the maximum amount of mobs spawning as a group. This is a positive integer.
+
+# #STEP2: Understanding how write a mobgroup as JSON as well as lists of them.
+# Json is a tree document format: http://en.wikipedia.org/wiki/JSON
+# Write a mobgroup like this: {"mob": "mobname", "weight": integer, "min": integer, "max": integer}
+# For example: {"mob": "Ocelot", "weight": 10, "min": 2, "max": 6}
+# For example: {"mob": "MushroomCow", "weight": 5, "min": 2, "max": 2}
+# A json list of mobgroups looks like this: [mobgroup, mobgroup, mobgroup...]
+# This would be an ampty list: []
+# You can validate your json here: http://jsonlint.com/
+
+# #STEP3: Understanding what to do with all this info
+# There are three categories of mobs: monsters, creatures and watercreatures.
+# These list may be populated with Default values if thee booleans bellow is set to true
+# You may also add your own mobgroups in the lists below
+
+# #STEP4: What is in the default mob groups?
+# The default mob groups are controlled by vanilla minecraft.
+# At 2012-03-24 you could find them here: https://github.com/Bukkit/mc-dev/blob/master/net/minecraft/server/BiomeBase.java#L75
+# In simple terms:
+# default creatures: [{"mob": "Sheep", "weight": 12, "min": 4, "max": 4}, {"mob": "Pig", "weight": 10, "min": 4, "max": 4}, {"mob": "Chicken", "weight": 10, "min": 4, "max": 4}, {"mob": "Cow", "weight": 8, "min": 4, "max": 4}]
+# default monsters: [{"mob": "Spider", "weight": 10, "min": 4, "max": 4}, {"mob": "Zombie", "weight": 10, "min": 4, "max": 4}, {"mob": "Skeleton", "weight": 10, "min": 4, "max": 4}, {"mob": "Creeper", "weight": 10, "min": 4, "max": 4}, {"mob": "Slime", "weight": 10, "min": 4, "max": 4}, {"mob": "Enderman", "weight": 1, "min": 1, "max": 4}]
+# default watercreatures: [{"mob": "Squid", "weight": 10, "min": 4, "max": 4}]
+
+# So for example ocelots wont spawn unless you add them below.
+# ========<CONFIGURATION>========
+# Should we add the default monster spawn groups?
+SpawnMonstersAddDefaults: true
+
+# Add extra monster spawn groups here
+SpawnMonsters: []
+
+# Should we add the default creature spawn groups?
+SpawnCreaturesAddDefaults: true
+
+# Add extra creature spawn groups here
+SpawnCreatures: []
+
+# Should we add the default watercreature spawn groups?
+SpawnWaterCreaturesAddDefaults: true
+
+# Add extra watercreature spawn groups here
+SpawnWaterCreatures: []
+
+# Should we add the default ambient creature spawn groups? (Currently only bats)
+SpawnAmbientCreaturesAddDefaults: true
+
+# Add extra ambient creature spawn groups here
+SpawnAmbientCreatures: []
+
