@@ -416,7 +416,7 @@ SpawnMonstersAddDefaults: true
 SpawnMonsters: []
 
 # Should we add the default creature spawn groups?
-SpawnCreaturesAddDefaults: true
+SpawnCreaturesAddDefaults: false
 
 # Add extra creature spawn groups here
 SpawnCreatures: []
